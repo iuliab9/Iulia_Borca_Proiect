@@ -4,6 +4,7 @@ using Iulia_Borca_Proiect.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Iulia_Borca_Proiect.Migrations
 {
     [DbContext(typeof(Iulia_Borca_ProiectContext))]
-    partial class Iulia_Borca_ProiectContextModelSnapshot : ModelSnapshot
+    [Migration("20230122233953_GreenhouseCreate")]
+    partial class GreenhouseCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

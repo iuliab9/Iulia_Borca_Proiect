@@ -8,9 +8,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Iulia_Borca_Proiect.Data;
 using Iulia_Borca_Proiect.Models;
-using System.Security.Policy;
 
-namespace Iulia_Borca_Proiect.Pages.Flowers
+namespace Iulia_Borca_Proiect.Pages.Greenhouses
 {
     public class EditModel : PageModel
     {
@@ -22,23 +21,21 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
         }
 
         [BindProperty]
-        public Flower Flower { get; set; } = default!;
+        public Greenhouse Greenhouse { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Flower == null)
+            if (id == null || _context.Greenhouse == null)
             {
                 return NotFound();
             }
 
-            var flower =  await _context.Flower.FirstOrDefaultAsync(m => m.ID == id);
-            if (flower == null)
+            var greenhouse =  await _context.Greenhouse.FirstOrDefaultAsync(m => m.ID == id);
+            if (greenhouse == null)
             {
                 return NotFound();
             }
-            Flower = flower;
-            ViewData["GreenhouseID"] = new SelectList(_context.Set<Greenhouse>(), "ID","GreenhouseName");
-
+            Greenhouse = greenhouse;
             return Page();
         }
 
@@ -51,7 +48,7 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
                 return Page();
             }
 
-            _context.Attach(Flower).State = EntityState.Modified;
+            _context.Attach(Greenhouse).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +56,7 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FlowerExists(Flower.ID))
+                if (!GreenhouseExists(Greenhouse.ID))
                 {
                     return NotFound();
                 }
@@ -72,9 +69,9 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
             return RedirectToPage("./Index");
         }
 
-        private bool FlowerExists(int id)
+        private bool GreenhouseExists(int id)
         {
-          return _context.Flower.Any(e => e.ID == id);
+          return _context.Greenhouse.Any(e => e.ID == id);
         }
     }
 }

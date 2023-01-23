@@ -7,9 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Iulia_Borca_Proiect.Data;
 using Iulia_Borca_Proiect.Models;
-using System.Security.Policy;
 
-namespace Iulia_Borca_Proiect.Pages.Flowers
+namespace Iulia_Borca_Proiect.Pages.Greenhouses
 {
     public class CreateModel : PageModel
     {
@@ -22,12 +21,11 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
 
         public IActionResult OnGet()
         {
-            ViewData["GreenhouseID"] = new SelectList(_context.Set<Greenhouse>(), "ID","GreenhouseName");
             return Page();
         }
 
         [BindProperty]
-        public Flower Flower { get; set; }
+        public Greenhouse Greenhouse { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -38,7 +36,7 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
                 return Page();
             }
 
-            _context.Flower.Add(Flower);
+            _context.Greenhouse.Add(Greenhouse);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Policy;
 using System.Xml.Linq;
 
 namespace Iulia_Borca_Proiect.Models
@@ -17,6 +18,9 @@ namespace Iulia_Borca_Proiect.Models
         public decimal Price {  get; set; }
         [DataType(DataType.Date)]
         public DateTime BlossomDate { get; set; }
+
+        public int? GreenhouseID { get; set; }
+        public Greenhouse? Greenhouse { get; set; }
 
 
     }

@@ -33,6 +33,12 @@
                 <input asp-for="Flower.BlossomDate" class="form-control" />
                 <span asp-validation-for="Flower.BlossomDate" class="textdanger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Flower.GreenhouseID" class="control-label">Greenhouse Name</label>
+                <select asp-for="Flower.GreenhouseID" class="form-control" asp-items="ViewBag.GreenhouseID">
+                </select>
+                <span asp-validation-for="Flower.GreenhouseID" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -15,5 +15,7 @@ namespace Iulia_Borca_Proiect.Data
         }
 
         public DbSet<Iulia_Borca_Proiect.Models.Flower> Flower { get; set; } = default!;
+
+        public DbSet<Iulia_Borca_Proiect.Models.Greenhouse> Greenhouse { get; set; }
     }
 }

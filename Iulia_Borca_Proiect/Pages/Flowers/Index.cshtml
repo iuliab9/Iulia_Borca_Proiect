@@ -25,6 +25,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Flower[0].BlossomDate)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flower[0].Greenhouse.GreenhouseName)
+            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -43,6 +47,10 @@
               <td>
                     @Html.DisplayFor(modelItem => item.BlossomDate)
              </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Greenhouse.GreenhouseName)
+                    
+                </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |

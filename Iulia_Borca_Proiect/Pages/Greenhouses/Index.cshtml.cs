@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Iulia_Borca_Proiect.Data;
 using Iulia_Borca_Proiect.Models;
 
-namespace Iulia_Borca_Proiect.Pages.Flowers
+namespace Iulia_Borca_Proiect.Pages.Greenhouses
 {
     public class IndexModel : PageModel
     {
@@ -19,14 +19,13 @@ namespace Iulia_Borca_Proiect.Pages.Flowers
             _context = context;
         }
 
-        public IList<Flower> Flower { get;set; } = default!;
+        public IList<Greenhouse> Greenhouse { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Flower != null)
+            if (_context.Greenhouse != null)
             {
-                Flower = await _context.Flower.Include(b => b.Greenhouse).ToListAsync();
-                
+                Greenhouse = await _context.Greenhouse.ToListAsync();
             }
         }
     }
